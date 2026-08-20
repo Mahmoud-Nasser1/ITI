@@ -1,0 +1,15 @@
+﻿namespace Gem
+{
+    public class FinishedProduct : IItem, IProfitable
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public DateTime ExpiryDate { get; set; }
+        public double ProfitRatio { get; set; }
+
+        public double CalculateValidityPeriod()
+        {
+            return Convert.ToInt32((ExpiryDate - DateTime.Now).TotalDays) - 10;
+        }
+    }
+}
